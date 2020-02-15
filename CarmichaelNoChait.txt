@@ -1,0 +1,31 @@
+import math
+
+def prime(n):
+    flag = 0
+    for i in range(2, int(math.sqrt(n))):
+        if n % i == 0:
+            flag = 1
+
+    if flag == 0:
+        return True
+    else:
+        return False
+
+
+while True:
+    n = int(input())
+    if n == 0:
+        break
+    pri = prime(n)
+    car = False
+    for a in range(2, n):
+        if a % n != 0:
+            no = int(math.sqrt(n))
+            if(int(math.pow(a,no)) % no == a):
+                car = True
+
+    print(pri,car)
+    if (pri== False and car == True):
+        print("The number ",n," is Carmichael number.")
+    else:
+        print(n, " is normal.")

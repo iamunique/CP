@@ -1,0 +1,23 @@
+import math
+pi = 3.14159
+while(True):
+    N = int(input())
+    a = []
+    if N == 0:
+        break
+    else:
+        i = N
+        while(i>0):
+            s1,s2,-s3 = list(map(int,input().split()))
+            a.append(math.atan2(s2-s1,s3-s1))
+            i = i - 1
+        a.sort()
+        gap = 0
+        for i in range(1,N):
+            gap = max(gap,a[i]-a[i-1])
+        gap = max(gap,2*pi - (a[N-1] - a[0]))
+
+        if gap>pi:
+            print("No")
+        else:
+            print("Yes")

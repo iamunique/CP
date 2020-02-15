@@ -1,0 +1,31 @@
+n = int(input())
+c1,n1 = map(int,input().split())
+c2,n2 = map(int,input().split())
+q1 = 0
+q2 = 0
+r = 0
+s = 0
+if((n1/c1) > (n2/c2)):
+    q1 = n//n1
+    r = n % n1
+    while(r!=0 and q1>=0):
+        if(r%n2 == 0):
+            q2 = r//n2
+            r = 0
+        else:
+            r = r + n1
+            q1 -= 1
+else:
+    q2 = n // n2
+    r = n % n2
+    while (r != 0 and q2 >= 0):
+        if (r % n1 == 0):
+            q1 = r // n1
+            r = 0
+        else:
+            r = r + n2
+            q2 -= 1
+if(q1 == -1 or q2 == -1):
+    print("failed")
+else:
+    print(q1,q2)

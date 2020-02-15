@@ -1,0 +1,38 @@
+import math
+
+def prime():
+    n = 10000
+    primes = []
+    for i in range(2, n + 1):
+        flag = True
+        if i > 10:
+            no = int(math.sqrt(i)) + 1
+        else:
+            no = i
+        for j in range(2, no):
+            if i % j == 0:
+                flag = False
+        if flag:
+            primes.append(i)
+    return primes
+
+n = int(input())
+primes = prime()
+# print(primes)
+if n<8:
+    print("Impossible")
+else:
+    if n % 2 == 0:
+        part = n - 4
+        for i in range(2, int(part / 2)):
+            if i in primes and (part - i) in primes:
+                print("2 2 ",i, " ", part - i)
+
+                break
+
+    else:
+        part = n - 5
+        for i in range(2, int(part / 2)):
+            if i in primes and (part - i) in primes:
+                print("2 3",i, " ", part - i)
+                break

@@ -1,0 +1,39 @@
+n=int(input())
+m=n+1
+
+l3=[]
+def nested_sum(l3):
+    t=0
+    for i in l3:
+        if isinstance(i,list):
+            t+=nested_sum(i)
+        else:
+            t+=i
+    return(t)
+
+for j in range(m,10**9):
+    p=m
+    l=[int(i) for i in str(m)]
+    sum2=(sum(l))
+    l2=[]
+    for i in range(2,m-1):
+        while(m%i==0):
+            #print(i)
+            l2.append(i)
+            m=m//i
+    if(len(l2)!=0):
+        for k in l2:
+            l3.append([int(j) for j in str(k)])
+            sum1=nested_sum(l3)
+            #print(sum1)
+            if(sum1==sum2):
+                print(p)
+                break
+    if(p):
+        break
+    else:
+        m+=1
+        
+
+
+

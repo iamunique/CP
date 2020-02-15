@@ -1,0 +1,13 @@
+def factorial(n):
+    fact = 1
+    for i in range(1,n+1):
+        fact *= i
+    return fact
+
+f, n = map(int,input().split())
+fa = factorial(f)
+# print(fa)
+if fa % n == 0:
+    print(n, "divides" ,f,"!")
+else:
+    print(n, "does not divide ",f,"!")

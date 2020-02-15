@@ -1,0 +1,20 @@
+T = int(input())
+while T>0:
+    N = int(input())
+    wt = []
+    team1 = []
+    team2 = []
+    for i in range(0,N):
+        wt.append(int(input()))
+
+    wt.sort(reverse=True)
+
+    for i in wt:
+        if sum(team1)+ i <= sum(team2) + i:
+            team1.append(i)
+        else:
+            team2.append(i)
+
+
+    print(sum(team1),sum(team2))
+    T = T -1
